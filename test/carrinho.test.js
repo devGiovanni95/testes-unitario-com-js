@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const { Carrinho } = require('../carrinho');
 const { Item } = require('../item');
 
@@ -21,11 +22,19 @@ describe('Testes do carrinho', () => {
 
     expect(carrinho.itens).toContain(item);
     expect(carrinho.itens).toContain(item2);
-  })
+  });
 
   it('Deve ter a propriedade "total" na inicialização', () => {
     const carrinho = new Carrinho();
-    
     expect(carrinho).toHaveProperty('total');
-  })
+  });
+
+  it('Deve lançar erro ao finalizar compra com carrinho vazio', () => {
+    function englobaErroCarrinho() {
+      const carrinho = new Carrinho();
+      carrinho.finalizaCompra();
+    }
+
+    expect(englobaErroCarrinho).toThrowError('Carrinho de compras vazio');
+  });
 });
