@@ -1,0 +1,13 @@
+-npm install --save-dev eslint@8.16.0 --save-exact
+
+npx  eslint --init
+> To check syntax, find problems, and enforce code style
+> JavaScript modules (import/export)
+> None of these
+> No
+> Node
+> Use a popular style guide
+> Airbnb
+> JSON
+
+npx eslint index.js
