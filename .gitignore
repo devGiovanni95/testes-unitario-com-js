@@ -1,3 +1,4 @@
-node_modules
-node_modules*
-testes_com_api
+teste_unitarios/node_modules
+teste_unitarios/node_modules*
+testes_com_api/node_modules
+
