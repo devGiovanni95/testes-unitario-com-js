@@ -61,6 +61,17 @@ describe('PUT em /editoras/id', () => {
       .send({ nome: 'Casa do Codigo' })
       .expect(204);
   });
+
+  test.each([
+    ['nome', { nome: 'Casa do Código' }],
+    ['cidade', { cidade: 'SP' }],
+    ['email', { email: 'cdc@cdc.com' }],
+  ])('Deve alterar o campo %s usando tabelas', async (chave, param) => {
+    await request(app)
+      .put(`/editoras/${idResposta}`)
+      .send(param)
+      .expect(204);
+  });
 });
 
 describe('DELETE em /editoras/id', () => {
